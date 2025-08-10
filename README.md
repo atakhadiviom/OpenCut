@@ -27,7 +27,11 @@
 
 ## Project Structure
 
-- `apps/web/` – Main Next.js web application
+- `apps/web/` – Main Next.js application
+- `packages/auth/` – Authentication package (Better Auth + env validation)
+- `packages/db/` – Database package (Drizzle ORM, schema, and env validation)
+- `docker-compose.yaml` – Local Postgres, Redis, and serverless Redis HTTP proxy (plus optional web service)
+- `turbo.json` – Turborepo task pipeline configuration
 - `src/components/` – UI and editor components
 - `src/hooks/` – Custom React hooks
 - `src/lib/` – Utility and API logic
@@ -104,11 +108,11 @@ Before you begin, ensure you have the following installed on your system:
 
    ```bash
    # Database (matches docker-compose.yaml)
-   DATABASE_URL="postgresql://opencut:opencutthegoat@localhost:5432/opencut"
+   DATABASE_URL="postgresql://cutapp:cutappthegoat@localhost:5432/cutapp"
 
-   # Generate a secure secret for Better Auth
+   # Better Auth
+   NEXT_PUBLIC_BETTER_AUTH_URL="http://localhost:3000"
    BETTER_AUTH_SECRET="your-generated-secret-here"
-   BETTER_AUTH_URL="http://localhost:3000"
 
    # Redis (matches docker-compose.yaml)
    UPSTASH_REDIS_REST_URL="http://localhost:8079"
@@ -117,6 +121,10 @@ Before you begin, ensure you have the following installed on your system:
    # Marble Blog
    MARBLE_WORKSPACE_KEY=cm6ytuq9x0000i803v0isidst # example organization key
    NEXT_PUBLIC_MARBLE_API_URL=https://api.marblecms.com
+
+   # Freesound
+   FREESOUND_CLIENT_ID=... # create at https://freesound.org/apiv2/apply/
+   FREESOUND_API_KEY=...
 
    # Development
    NODE_ENV="development"
@@ -141,6 +149,46 @@ Before you begin, ensure you have the following installed on your system:
 6. Start the development server: `bun run dev` from (inside apps/web)
 
 The application will be available at [http://localhost:3000](http://localhost:3000).
+
+## Common scripts
+
+- From repo root (Turborepo):
+  - `bun run dev` – run all app/package dev tasks
+  - `bun run build` – build all workspaces
+  - `bun run check-types` – typecheck across workspaces
+  - `bun run lint` – lint with Ultracite rules
+  - `bun run format` – format with Ultracite rules
+- From web app (apps/web):
+  - `bun run dev` – start Next.js dev server
+  - `bun run build` – build Next.js
+  - `bun run start` – start production server
+  - `bun run db:generate` – generate Drizzle migrations
+  - `bun run db:migrate` – apply migrations
+
+## Run with Docker Compose (optional)
+
+This repository includes a full local stack using Docker Compose (Postgres, Redis, serverless Redis HTTP proxy, and the web app).
+
+1. From the project root, start services:
+   ```bash
+   docker-compose up -d
+   ```
+2. If you also run the `web` service in Compose, open http://localhost:3100 (mapped to app port 3000). Otherwise, run the app locally with `bun run dev` and open http://localhost:3000.
+3. To view logs:
+   ```bash
+   docker-compose logs -f
+   ```
+4. To stop services:
+   ```bash
+   docker-compose down
+   ```
+
+## Troubleshooting
+
+- Env validation errors: ensure required variables match the examples above. The app validates env vars at startup using zod-based schemas.
+- Postgres connection issues: confirm DATABASE_URL matches your running container (user `cutapp`, password `cutappthegoat`, db `cutapp`), and port 5432 is free.
+- Redis HTTP proxy errors: ensure `serverless-redis-http` is healthy and that `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` match docker-compose values.
+- Port in use: if 3000 or 3100 is in use, stop other processes or change the port mapping in docker-compose.
 
 ## Contributing
 
