@@ -29,13 +29,13 @@ export function Onboarding() {
   const getStepTitle = () => {
     switch (step) {
       case 0:
-        return "Welcome to OpenCut Beta! 🎉";
+        return "Welcome to CutApp Beta! 🎉";
       case 1:
         return "⚠️ This is a super early beta!";
       case 2:
         return "🦋 Have fun testing!";
       default:
-        return "OpenCut Onboarding";
+        return "CutApp Onboarding";
     }
   };
 
@@ -45,8 +45,8 @@ export function Onboarding() {
         return (
           <div className="space-y-5">
             <div className="space-y-3">
-              <Title title="Welcome to OpenCut Beta! 🎉" />
-              <Description description="You're among the first to try OpenCut - the fully open source CapCut alternative." />
+              <Title title="Welcome to CutApp Beta! 🎉" />
+              <Description description="You're among the first to try CutApp - the fully open source CapCut alternative." />
             </div>
             <NextButton onClick={handleNext}>Next</NextButton>
           </div>
@@ -56,8 +56,8 @@ export function Onboarding() {
           <div className="space-y-5">
             <div className="space-y-3">
               <Title title={getStepTitle()} />
-              <Description description="OpenCut started just one month ago. There's still a ton of things to do to make this editor amazing." />
-              <Description description="If you're curious, check out our roadmap [here](https://opencut.app/roadmap)" />
+              <Description description="CutApp started just one month ago. There's still a ton of things to do to make this editor amazing." />
+              <Description description="If you're curious, check out our roadmap [here](https://cutapp.app/roadmap)" />
             </div>
             <NextButton onClick={handleNext}>Next</NextButton>
           </div>
@@ -67,7 +67,7 @@ export function Onboarding() {
           <div className="space-y-5">
             <div className="space-y-3">
               <Title title={getStepTitle()} />
-              <Description description="Join our [Discord](https://discord.gg/zmR9N35cjK), chat with cool people and share feedback to help make OpenCut the best editor ever." />
+              <Description description="Join our [Discord](https://discord.gg/zmR9N35cjK), chat with cool people and share feedback to help make CutApp the best editor ever." />
             </div>
             <NextButton onClick={handleClose}>Finish</NextButton>
           </div>

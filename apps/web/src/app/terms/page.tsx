@@ -7,13 +7,13 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 
 export const metadata: Metadata = {
-  title: "Terms of Service - OpenCut",
+  title: "Terms of Service - CutApp",
   description:
-    "OpenCut's Terms of Service. Fair, transparent terms for our free and open-source video editor.",
+    "CutApp's Terms of Service. Fair, transparent terms for our free and open-source video editor.",
   openGraph: {
-    title: "Terms of Service - OpenCut",
+    title: "Terms of Service - CutApp",
     description:
-      "OpenCut's Terms of Service. Fair, transparent terms for our free and open-source video editor.",
+      "CutApp's Terms of Service. Fair, transparent terms for our free and open-source video editor.",
     type: "website",
   },
 };

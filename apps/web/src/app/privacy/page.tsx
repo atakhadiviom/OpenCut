@@ -7,13 +7,13 @@ import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - OpenCut",
+  title: "Privacy Policy - CutApp",
   description:
-    "Learn how OpenCut handles your data and privacy. Our commitment to protecting your information while you edit videos.",
+    "Learn how CutApp handles your data and privacy. Our commitment to protecting your information while you edit videos.",
   openGraph: {
-    title: "Privacy Policy - OpenCut",
+    title: "Privacy Policy - CutApp",
     description:
-      "Learn how OpenCut handles your data and privacy. Our commitment to protecting your information while you edit videos.",
+      "Learn how CutApp handles your data and privacy. Our commitment to protecting your information while you edit videos.",
     type: "website",
   },
 };
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
                   </h2>
                   <p className="mb-4">
                     <strong>
-                      OpenCut processes all videos locally on your device.
+                      CutApp processes all videos locally on your device.
                     </strong>{" "}
                     We never upload, store, or have access to your video files.
                     Your content remains completely private and under your
@@ -84,10 +84,9 @@ export default function PrivacyPage() {
                   </ul>
                   <p className="mb-4">
                     <strong>
-                      We do NOT store your projects on our servers.
+                      We do not store your projects or media on our servers.
                     </strong>{" "}
-                    All project data, including names, thumbnails, and creation
-                    dates, is stored locally in your browser using IndexedDB.
+                    All project data—including names, thumbnails, creation dates, and edit history—stays on your device in your browser (IndexedDB/local storage).
                   </p>
                   <p>
                     We use{" "}
@@ -117,7 +116,7 @@ export default function PrivacyPage() {
                       Databuddy
                     </a>{" "}
                     for completely anonymized and non-invasive analytics to
-                    understand how people use OpenCut.
+                    understand how people use CutApp.
                   </p>
                   <p>
                     This helps us improve the editor, but we never collect
@@ -150,6 +149,7 @@ export default function PrivacyPage() {
                   </h2>
                   <p className="mb-4">
                     OpenCut integrates with these services:
++                    CutApp integrates with these services:
                   </p>
                   <ul className="list-disc pl-6 mb-4 space-y-2">
                     <li>
@@ -186,6 +186,7 @@ export default function PrivacyPage() {
                   </h2>
                   <p className="mb-4">
                     OpenCut is completely open source. You can review our code,
++                    CutApp is completely open source. You can review our code,
                     see exactly how we handle data, and even self-host the
                     application if you prefer.
                   </p>
