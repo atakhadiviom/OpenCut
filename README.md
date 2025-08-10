@@ -13,8 +13,8 @@
 ## Why?
 
 - **Privacy**: Your videos stay on your device
-- **Free features**: Every basic feature of CapCut is paywalled now
-- **Simple**: People want editors that are easy to use - CapCut proved that
+- **Free features**: Every basic feature of CutApp is paywalled now
+- **Simple**: People want editors that are easy to use - CutApp proved that
 
 ## Features
 
